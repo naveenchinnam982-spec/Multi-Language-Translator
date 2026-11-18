@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Language, TranslationResponse } from '../../types';
+import { Language } from '../../types';
 import { AUTO_DETECT, getLanguageByCode } from '../../data/languages';
 import { LanguageSelectorModal } from './LanguageSelectorModal';
 import { ApiKeyAlert } from './ApiKeyAlert';
 import { useToast } from '../../context/ToastContext';
 import { speech } from '../../utils/speech';
 import { saveTranslationHistoryItem } from '../../utils/storage';
+import { executeTranslation } from '../../utils/translateService';
 import {
   ArrowLeftRight,
   Sparkles,
@@ -128,21 +129,13 @@ export const TranslatorWorkspace: React.FC<TranslatorWorkspaceProps> = ({
     setIsPlayingTargetSpeech(false);
 
     try {
-      const response = await fetch('/.netlify/functions/translate', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          text: trimmed,
-          targetLang: targetLang.code,
-          sourceLang: sourceLang.code === 'auto' ? undefined : sourceLang.code,
-        }),
-      });
+      const data = await executeTranslation(
+        trimmed,
+        targetLang.code,
+        sourceLang.code === 'auto' ? undefined : sourceLang.code
+      );
 
-      const data: TranslationResponse = await response.json();
-
-      if (!response.ok || !data.success) {
+      if (!data.success) {
         const errorMsg = data.error || 'Translation request failed.';
         setErrorInfo({
           error: errorMsg,
