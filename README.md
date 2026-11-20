@@ -1,6 +1,6 @@
 # LinguaFlow — Advanced Multi-Language Translation Platform 🌐
 
-**Live Production URL:** [https://linguaflow-translator-ai.netlify.app](https://linguaflow-translator-ai.netlify.app)  
+**Live Production URL:** [https://translatingweb.netlify.app](https://translatingweb.netlify.app)  
 **GitHub Repository:** [https://github.com/naveenchinnam982-spec/Multi-Language-Translator](https://github.com/naveenchinnam982-spec/Multi-Language-Translator)
 
 LinguaFlow is a production-grade, full-stack language translation web platform engineered with **React 18**, **TypeScript**, **Tailwind CSS**, and **Netlify Serverless Functions**. It delivers accurate machine translation across 70+ world languages—featuring full bidirectional **English ↔ Telugu** and **English ↔ Hindi** support—completely free with **zero paid API keys, zero cloud billing, and zero usage fees**.
