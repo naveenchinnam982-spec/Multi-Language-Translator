@@ -1,6 +1,9 @@
-# LinguaFlow – Smart Language Translator 🌐✨
+# LinguaFlow – Smart Language Translator
 
-> A modern language translation web application built with React, TypeScript, Tailwind CSS, Netlify Serverless Functions, and the free MyMemory Translation API.
+> A modern, responsive language translation web application built with React, TypeScript, Tailwind CSS, Netlify Functions, and the MyMemory Translation API.
+
+**Live Website:** [https://linguaflow-translator-ai.netlify.app](https://linguaflow-translator-ai.netlify.app)  
+**GitHub Repository:** [https://github.com/naveenchinnam982-spec/Multi-Language-Translator](https://github.com/naveenchinnam982-spec/Multi-Language-Translator)
 
 ---
 
@@ -74,7 +77,8 @@ Translater web/
     ├── utils/
     │   ├── cn.ts                # Tailwind class utility
     │   ├── speech.ts            # SpeechSynthesis voice manager & controller
-    │   └── storage.ts           # LocalStorage translation history helper
+    │   ├── storage.ts           # LocalStorage translation history helper
+    │   └── translateService.ts  # Translation service with fallback support
     └── components/
         ├── Navbar.tsx           # Navigation header with logo, theme toggle & mobile menu
         ├── Hero.tsx             # Hero banner with value proposition & feature badges
